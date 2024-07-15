@@ -10,10 +10,11 @@ export default function Home() {
       <div className={styles.description}>{t('description')}</div>
       <Tooltip
         className={styles.sampleTooltip}
-        content='this is a sample tooltip'
+        content={t('tooltipContent')}
         placement='left'
       >
-        Hover here <FiAlertCircle />
+        {t('tooltip')}
+        <FiAlertCircle />
       </Tooltip>
     </main>
   );

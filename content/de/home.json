@@ -1,6 +1,8 @@
 {
     "Home": {
       "title": "Bezeichnung",
-      "description": "Next.js 14 Deutsche Beschreibung der Startseite"
+      "description": "Next.js 14 Deutsche Beschreibung der Startseite",
+      "tooltip": "Hier schweben",
+      "tooltipContent": "Dies ist ein Beispiel für einen Tooltip"
     }
   }

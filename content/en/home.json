@@ -1,6 +1,8 @@
 {
   "Home": {
     "title": "Home",
-    "description": "Next.js 14 English description of home page!!"
+    "description": "Next.js 14 English description of home page!!",
+    "tooltip": "Hover here",
+    "tooltipContent": "this is a sample tooltip"
   }
 }
