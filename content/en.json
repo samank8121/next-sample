@@ -1,0 +1,10 @@
+{
+  "Home": {
+    "title": "Home",
+    "description": "Next.js 14"
+  },
+  "Product":{
+    "title": "Product",
+    "description": "Next.js 14"
+  }
+}
