@@ -2,9 +2,5 @@
   "Home": {
     "title": "Home",
     "description": "Next.js 14 English description of home page!!"
-  },
-  "Product":{
-    "title": "Product",
-    "description": "Next.js 14"
   }
 }
