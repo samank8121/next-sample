@@ -1,12 +1,16 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   padding: 6rem;
   min-height: 100vh;
 }
-
+.title
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
 .description {
   display: inherit;
   justify-content: inherit;
@@ -16,6 +20,7 @@
   width: 100%;
   z-index: 2;
   font-family: var(--font-mono);
+  margin: 20px 0px;
 }
 
 .description p {

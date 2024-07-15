@@ -6,13 +6,15 @@ export default function Home() {
   const t = useTranslations("Home");
   return (
     <main className={styles.main}>
-      <div>{t("title")}</div>
-      <div className={styles.description}>
-        <div>{t("description")}</div>
-        <Tooltip className={styles.sampleTooltip} content='this is a sample tooltip' placement='left'>
-          Hover here <FiAlertCircle />
-        </Tooltip>
-      </div>
+      <div className={styles.title}>{t('title')}</div>
+      <div className={styles.description}>{t('description')}</div>
+      <Tooltip
+        className={styles.sampleTooltip}
+        content='this is a sample tooltip'
+        placement='left'
+      >
+        Hover here <FiAlertCircle />
+      </Tooltip>
     </main>
   );
 }
