@@ -17,8 +17,10 @@
   right: 0px;
 }
 
-.card .top.add {
-  top: 0px;
+.card .add {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .card .top.favorite {
@@ -80,7 +82,7 @@
   line-height: 24px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  line-clamp: 1;
   overflow: hidden;
   text-decoration: none;
 }
@@ -124,15 +126,14 @@
 }
 
 .card .weight {
-  color: var(--primary-900); /* replace with $color-neutral-500 */
+  color: var(--primary-900);
   font-size: 10px;
   font-weight: bold;
   line-height: 14px;
 }
 
 .card .brand {
-  color: var(--primary-600); /* replace with $color-neutral-700 */
-  font-size: 12px;
+  color: var(--primary-600);
   font-weight: bold;
   line-height: 16px;
 }

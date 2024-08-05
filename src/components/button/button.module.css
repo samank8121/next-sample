@@ -40,8 +40,8 @@
 
 .button-variant-filled:disabled,
 .button-variant-filled[disabled] {
-  background: #e0e0e0; /* Replace $color-neutral-100 with appropriate value */
-  color: var(--primary-700); /* Replace $color-neutral-500 with appropriate value */
+  background: #e0e0e0;
+  color: var(--primary-700);
 }
 
 .button-variant-outlined {

@@ -4,13 +4,14 @@
   padding: 6rem;
   min-height: 100vh;
 }
-.title
-{
+
+.title {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
 }
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -31,7 +32,46 @@
   border-radius: var(--border-radius);
 }
 
-.description .sampleTooltip
-{
+.main .sampleTooltip {
   background-color: rgb(89, 89, 89) !important;
+}
+
+.main .cardList {
+  margin: 20px 0px;
+  display: grid;
+  grid-gap: 28px 40px;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 576px) {
+  .main .cardList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px 26px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .main .cardList {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px 26px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .main .cardList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width:992px) and (max-width: 1200px) {
+  .main .cardList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .main .cardList {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }

@@ -17,10 +17,21 @@ export default function Home() {
         {t('tooltip')}
         <FiAlertCircle />
       </Tooltip>
-      <ProductCard
-        product={{ id: 1, caption: 'caption', rate: 5, price: 100, unit: 'gr' }}
-        value={2}
-      ></ProductCard>
+      <div className={styles.cardList}>
+        {Array.from({ length:5 }).map((_, index) => (
+          <ProductCard
+            key={index}
+            product={{
+              id: 1,
+              caption: 'caption',
+              rate: 5,
+              price: 100,
+              unit: 'gr',
+            }}
+            value={2}
+          ></ProductCard>
+        ))}
+      </div>
     </main>
   );
 }

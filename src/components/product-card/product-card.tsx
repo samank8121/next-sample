@@ -41,6 +41,7 @@ const ProductCard: FC<ProductCardProps> = ({
   },
   value,
   className,
+  onChange
 }) => {
   const [currectValue, setCurrentValue] = useState(value);
 
@@ -48,17 +49,16 @@ const ProductCard: FC<ProductCardProps> = ({
     setCurrentValue(value);
   }, [value]);
 
+  const onChangeProduct = (count: number) => {    
+    setCurrentValue(count);
+    if (onChange) {
+      onChange(count);
+    }
+  };
   return (
     <>
       <div className={clsx(styles.card, className)}>
         <div className={styles.top}>
-          <IncreaseDecrease
-            className={clsx(styles.top, styles.add)}
-            value={currectValue}
-            addBtnText='add'
-            //onChange={onChangeProduct}
-          />
-
           {discount && (
             <div className={clsx(styles.top, styles.discount)}>
               {`-${discount}%`}
@@ -85,7 +85,12 @@ const ProductCard: FC<ProductCardProps> = ({
             <Image src='next.svg' alt='default' width={170} height={170} />
           </div>
         )}
-
+        <IncreaseDecrease
+          className={styles.add}
+          value={currectValue}
+          addBtnText='add'
+          onChange={onChangeProduct}
+        />
         <div
           className={clsx(styles.ratePlaceholder, {
             [styles.hidden]: rate === 0,
