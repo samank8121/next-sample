@@ -1,0 +1,69 @@
+.increaseDecreaseContainer {
+    display: flex;
+    flex-direction: row;
+    height: 36px;
+}
+
+.increaseDecreaseContainer .addBtn {
+    height: 36px;
+    width: 36px;
+    background-color: var(--primary-300);
+    border-radius: 50%;
+}
+
+.increaseDecreaseContainer .addBtn.addBtnText {
+    width: max-content;
+    border-radius: 222px;
+}
+
+.increaseDecreaseContainer .addBtn svg {
+    min-height: 22px;
+    min-width: 22px;
+    stroke-width: 2px;
+}
+
+.increaseDecreaseContainer .addBtn:active {
+    background-color: var(--primary-300);
+}
+
+.increaseDecreaseContainer .increaseDecrease {
+    display: flex;
+    min-width: 115px;
+    padding: 5px 6px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 222px;
+    background: var(--primary-300);
+}
+
+.increaseDecreaseContainer .increaseDecrease .iconContainer {
+    cursor: pointer;
+    display: flex;
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #FFF;
+}
+
+.increaseDecreaseContainer .increaseDecrease .iconContainer svg {
+    min-width: 20px;
+    min-height: 20px;
+    stroke-width: 3px;
+    stroke: var(--primary-300);
+}
+
+.increaseDecreaseContainer .increaseDecrease .value {
+    min-width: 47px;
+    padding: 0 4px;
+    text-align: center;
+    color: #FFF;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    font-size: 16px; /* Example font size, adjust accordingly */
+    font-weight: bold; /* Example font weight, adjust accordingly */
+}

@@ -1,0 +1,158 @@
+
+.button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  gap: 10px;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.button:active,
+.button:disabled,
+.button[disabled] {
+  box-shadow: none;
+}
+
+.button:disabled,
+.button[disabled] {
+  cursor: not-allowed;
+}
+
+.button-variant-filled {
+  background: var(--primary-500);
+  color: #fff;
+}
+
+.button-variant-filled:active {
+  background: var(--primary-500);
+}
+
+.button-variant-filled:disabled,
+.button-variant-filled[disabled] {
+  background: #e0e0e0; /* Replace $color-neutral-100 with appropriate value */
+  color: var(--primary-700); /* Replace $color-neutral-500 with appropriate value */
+}
+
+.button-variant-outlined {
+  border: 1px solid var(--primary-500);
+  color: #007bff;
+  background-color: #fff;
+}
+
+.button-variant-outlined:active {
+  color: var(--primary-500);
+  border-color: var(--primary-500);
+}
+
+.button-variant-outlined:disabled,
+.button-variant-outlined[disabled] {
+  color: #bdbdbd; 
+  border-color: #eeeeee;
+}
+
+.button-variant-elevated {
+  background: #e0f7fa; 
+  color: var(--primary-500);
+}
+
+.button-variant-elevated:active {
+  color: var(--primary-400);
+}
+
+.button-size-sm {
+  font-size: 14px;
+  line-height: 24px;
+  padding-inline-start: 14px;
+  padding-inline-end: 14px;
+  height: 36px;
+}
+
+.button-size-sm.only-icon {
+  height: 28px;
+}
+
+.button-size-m {
+  font-size: 14px;
+  line-height: 24px;
+  padding-inline-start: 16px;
+  padding-inline-end: 16px;
+  height: 40px;
+}
+
+.button-size-m.only-icon {
+  height: 32px;
+}
+
+.button-size-l {
+  font-size: 15px;
+  line-height: 24px;
+  padding-inline-start: 18px;
+  padding-inline-end: 18px;
+  height: 44px;
+}
+
+.button-size-l.only-icon {
+  height: 36px;
+}
+
+.button-size-xl {
+  font-size: 16px;
+  line-height: 26px;
+  padding-inline-start: 24px;
+  padding-inline-end: 24px;
+  height: 50px;
+}
+
+.button-size-xl.only-icon {
+  height: 42px;
+}
+
+.button.loading {
+  background: #bbdefb;
+  color: var(--primary-500);
+  padding-inline-end: 50px;
+}
+
+.button.loading svg {
+  animation: rotation 1s infinite linear;
+  height: 29px;
+  width: 29px;
+}
+
+.button.loading .icon {
+  position: absolute;
+  right: 14px;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.only-icon {
+  border-radius: 2px;
+}
+.button .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button .icon svg {
+  width: 20px;
+  height: 20px;
+}
