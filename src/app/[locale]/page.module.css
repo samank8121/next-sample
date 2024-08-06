@@ -39,22 +39,23 @@
 .main .cardList {
   margin: 20px 0px;
   display: grid;
-  grid-gap: 28px 40px;
+  grid-gap: 18px 10px;
   padding-bottom: 30px;
 }
 
+
 @media (max-width: 576px) {
   .main .cardList {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px 26px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px 0;
     margin-bottom: 50px;
   }
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
   .main .cardList {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px 26px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 15px;
   }
 }
 

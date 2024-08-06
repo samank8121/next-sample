@@ -10,6 +10,11 @@
   padding: 0 14px 14px;
   border-radius: 10px;
 }
+@media (max-width: 576px) {
+  .card {
+    max-width: unset;
+  }
+}
 
 .card .top {
   position: absolute;
