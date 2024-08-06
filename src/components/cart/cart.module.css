@@ -1,0 +1,32 @@
+.cart
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    border-radius: 222px;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    z-index: 10;   
+    border: 5px solid #536493;
+}
+.cart .items {
+    position: absolute;
+    background-color: #FFF1DB;
+    color:#876f5e;
+    right: 18px;
+    top: 10px;
+    font-weight: 500;
+    padding: 3px;
+    border-radius: 5px;
+
+}
+.cart svg
+{
+    width: 40px;
+    height: 40px;
+    color: #EF5A6F;
+}

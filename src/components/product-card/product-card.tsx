@@ -6,20 +6,10 @@ import styles from './product-card.module.css';
 import Image from 'next/image';
 import { FiStar } from 'react-icons/fi';
 import IncreaseDecrease from '../increase-decrease/increase-decrease';
+import { ProductType } from '@/types/ProductType';
 
-export type ProductCardType = {
-  id: number;
-  caption: string;
-  imageSrc?: string;
-  rate: number;
-  price: number;
-  unit: string;
-  discount?: number;
-  weight?: string;
-  brand?: string;
-};
 interface ProductCardProps {
-  product: ProductCardType;
+  product: ProductType;
   value?: number;
   showAdd?: boolean;
   enableDeleteAlert?: boolean;
@@ -88,7 +78,7 @@ const ProductCard: FC<ProductCardProps> = ({
         <IncreaseDecrease
           className={styles.add}
           value={currectValue}
-          addBtnText='add'
+          addBtnText='Add'
           onChange={onChangeProduct}
         />
         <div
@@ -101,17 +91,17 @@ const ProductCard: FC<ProductCardProps> = ({
         </div>
         <div className={styles.pricePlaceHolder}>
           <span className={styles.price}>
-            {price === 0 ? 'outofStock' : price}
+            {price === 0 ? 'Out of Stock' : price}
           </span>
           {price !== 0 && (
             <>
-              <span className={styles.unit}>{unit}</span>
+              <span className={styles.price}>€</span>
             </>
           )}
         </div>
 
         <span className={styles.caption}>{caption}</span>
-        {weight && <div className={styles.weight}>{weight}</div>}
+        {weight && <div className={styles.weight}>{weight} {unit}</div>}
         {brand && <div className={styles.brand}>{brand}</div>}
       </div>
     </>
