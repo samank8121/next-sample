@@ -8,7 +8,6 @@ import ProductList from './components/productList';
 
 export default function Home() {
   const t = useTranslations('Home');
-  
   return (
     <main className={styles.main}>
       <div className={styles.title}>{t('title')}</div>

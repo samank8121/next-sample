@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { FiStar } from 'react-icons/fi';
 import IncreaseDecrease from '../increase-decrease/increase-decrease';
 import { ProductType } from '@/types/ProductType';
+import { useTranslations } from 'next-intl';
 
 interface ProductCardProps {
   product: ProductType;
@@ -34,7 +35,7 @@ const ProductCard: FC<ProductCardProps> = ({
   onChange
 }) => {
   const [currectValue, setCurrentValue] = useState(value);
-
+  const t = useTranslations('Product');
   useEffect(() => {
     setCurrentValue(value);
   }, [value]);
@@ -75,12 +76,16 @@ const ProductCard: FC<ProductCardProps> = ({
             <Image src='next.svg' alt='default' width={170} height={170} />
           </div>
         )}
-        <IncreaseDecrease
-          className={styles.add}
-          value={currectValue}
-          addBtnText='Add'
-          onChange={onChangeProduct}
-        />
+        {price !== 0 ? (
+          <IncreaseDecrease
+            className={styles.add}
+            value={currectValue}
+            addBtnText={t('add')}
+            onChange={onChangeProduct}
+          />
+        ) : (
+          <div className={styles.add} />
+        )}
         <div
           className={clsx(styles.ratePlaceholder, {
             [styles.hidden]: rate === 0,
@@ -91,17 +96,17 @@ const ProductCard: FC<ProductCardProps> = ({
         </div>
         <div className={styles.pricePlaceHolder}>
           <span className={styles.price}>
-            {price === 0 ? 'Out of Stock' : price}
+            {price === 0 ? t('outofStock') : price}
           </span>
-          {price !== 0 && (
-            <>
-              <span className={styles.price}>€</span>
-            </>
-          )}
+          {price !== 0 && <span className={styles.price}>€</span>}
         </div>
 
         <span className={styles.caption}>{caption}</span>
-        {weight && <div className={styles.weight}>{weight} {unit}</div>}
+        {weight && (
+          <div className={styles.weight}>
+            {weight} {unit}
+          </div>
+        )}
         {brand && <div className={styles.brand}>{brand}</div>}
       </div>
     </>

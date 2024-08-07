@@ -55,7 +55,7 @@ const ProductList = () => {
           onChange={(value) => {
             onChangeProduct(p.id, value);
           }}
-        ></ProductCard>
+        />
       ))}
     </div>
   );

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import Providers from "../providers";
-
+import ClientProviders from "../providers";
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,11 +15,14 @@ interface RootLayoutProps {
   locale: never;
 }
 
-export default function RootLayout({ children, locale }: RootLayoutProps) {
+export default async function RootLayout({ children, locale }: RootLayoutProps) {
+  const messages = await getMessages();
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <NextIntlClientProvider messages={messages}>
+          <ClientProviders>{children}</ClientProviders>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

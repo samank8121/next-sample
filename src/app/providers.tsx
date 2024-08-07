@@ -8,7 +8,7 @@ import GeneralQueryClient from '@/shared/getQueryClient';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const queryClient = GeneralQueryClient;
-  return (
+  return (    
     <QueryClientProvider client={queryClient}>
       {children}
       <ReactQueryDevtools initialIsOpen={false} />
