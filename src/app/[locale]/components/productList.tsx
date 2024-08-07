@@ -21,12 +21,16 @@ const ProductList = () => {
       (oldData?: CartType) => {
         if (oldData) {
           const products = { ...oldData.products, [currentKey]: value };
+
           const sum = Object.entries(products).reduce(
             (accumulator, currentValue) => accumulator + currentValue[1],
             0
           );
+     
           return {
-            products: products,
+            products: Object.fromEntries(
+              Object.entries(products).filter(([_, value]) => value !== 0)
+            ),
             totalCount: sum,
           };
         }

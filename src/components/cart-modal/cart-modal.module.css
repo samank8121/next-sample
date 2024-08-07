@@ -1,0 +1,12 @@
+.cartModal
+{
+    margin-top: 40px;
+}
+.grid
+{       
+    display:  grid;
+    color: black;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px 26px;
+    margin-bottom: 10px;
+}

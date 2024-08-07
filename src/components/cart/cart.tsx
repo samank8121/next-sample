@@ -8,6 +8,7 @@ import Span from '../clickable-span/clickable-span';
 import { useQuery } from '@tanstack/react-query';
 import { queryKeys } from '@/shared/constant';
 import { CartType } from '@/types/CartType';
+import commonQueryClient from '@/shared/getQueryClient';
 export type EventStopPropagation = 'none' | 'click'|'touch'|'all';
 
 export type CartProps = {
@@ -20,9 +21,9 @@ const Cart: React.FC<CartProps> = ({
   const { data } = useQuery<CartType>({
     queryKey: [queryKeys.cart],    
   });
-  const onClick=()=>{
-   //open modal
-  }
+  const onClick = () => {
+    commonQueryClient.setQueryData([queryKeys.cartModal], { open: true });
+  };
 
   return (
     <Span className={clsx(styles.cart, className)} onClick={onClick}>
