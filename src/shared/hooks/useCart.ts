@@ -18,7 +18,7 @@ export const useCart = () => {
 
           return {
             products: Object.fromEntries(
-              Object.entries(products).filter(([_, value]) => value !== 0)
+              Object.entries(products).filter(([, value]) => value !== 0)
             ),
             totalCount: sum,
           };

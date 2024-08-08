@@ -1,3 +1,4 @@
+import React from 'react';
 import Tooltip from '@/components/tooltip/tooltip';
 import styles from './page.module.css';
 import { FiAlertCircle } from 'react-icons/fi';

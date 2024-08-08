@@ -21,7 +21,6 @@ interface ProductCardProps {
 }
 const ProductCard: FC<ProductCardProps> = ({
   product: {
-    id,
     caption,
     imageSrc,
     rate,

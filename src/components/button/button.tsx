@@ -3,8 +3,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
 
-//import LoaderIcon from '@/assets/icons/small_loader.svg';
-
 import styles from './button.module.css';
 
 type Props = {
@@ -15,7 +13,6 @@ type Props = {
   loading?: boolean;
   loadingText?: string;
   delay?: number;
-  onClickEvent?: string;
 };
 
 export type ButtonProps = Omit<
@@ -37,7 +34,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       loadingText,
       delay = 300,
       onClick,
-      onClickEvent,
       ...props
     },
     ref
@@ -90,12 +86,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {icon && !activeLoading && <span className={styles.icon}>{icon}</span>}
-        {activeLoading && loadingText ? loadingText : children}
-        {/* {activeLoading && (
-          <span className={styles.icon}>
-            <LoaderIcon />
-          </span>
-        )} */}
+        {activeLoading && loadingText ? loadingText : children}        
       </button>
     );
   }

@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
@@ -5,6 +6,7 @@ import ClientProviders from "../providers";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import Modals from "../modals";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
