@@ -1,0 +1,8 @@
+{
+  "Cart": {
+    "caption": "Caption",
+    "count": "Count",
+    "totalPrice":"Total Price",
+    "empty": "There is nothing in your cart!"
+  }
+}

@@ -8,6 +8,7 @@ import { FiStar } from 'react-icons/fi';
 import IncreaseDecrease from '../increase-decrease/increase-decrease';
 import { ProductType } from '@/types/ProductType';
 import { useTranslations } from 'next-intl';
+import { euro } from '@/shared/constant';
 
 interface ProductCardProps {
   product: ProductType;
@@ -98,7 +99,7 @@ const ProductCard: FC<ProductCardProps> = ({
           <span className={styles.price}>
             {price === 0 ? t('outofStock') : price}
           </span>
-          {price !== 0 && <span className={styles.price}>€</span>}
+          {price !== 0 && <span className={styles.price}>{euro}</span>}
         </div>
 
         <span className={styles.caption}>{caption}</span>

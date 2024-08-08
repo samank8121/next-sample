@@ -8,6 +8,7 @@ export default getRequestConfig(async ({ locale }) => {
   const messages = {
     ...(await import(`../content/${locale}/home.json`)).default,
     ...(await import(`../content/${locale}/product.json`)).default,
+    ...(await import(`../content/${locale}/cart.json`)).default,
   };
   return {
     messages

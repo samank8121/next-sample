@@ -1,0 +1,8 @@
+{
+  "Cart": {
+    "caption": "Bildunterschrift",
+    "count": "Zählen Sie",
+    "totalPrice":"Gesamtpreis",
+    "empty": "There is nothing in your cart!"
+  }
+}

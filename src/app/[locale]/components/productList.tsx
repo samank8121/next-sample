@@ -2,44 +2,21 @@
 
 import React from 'react';
 import ProductCard from '@/components/product-card/product-card';
-import { Products } from '@/shared/products';
+import { Products } from '@/shared/data/products';
 import { CartType } from '@/types/CartType';
-import commonQueryClient from '@/shared/getQueryClient';
 import { queryKeys } from '@/shared/constant';
 import styles from '../page.module.css';
 import { useQuery } from '@tanstack/react-query';
+import { useCart } from '@/shared/hooks/useCart';
 
 const ProductList = () => {
+  const { changeProduct } = useCart();
   const { data } = useQuery<CartType>({
     queryKey: [queryKeys.cart],
   });
 
   const onChangeProduct = (productid: number, value: number) => {
-    const currentKey = productid.toString();
-    commonQueryClient.setQueryData<CartType>(
-      [queryKeys.cart],
-      (oldData?: CartType) => {
-        if (oldData) {
-          const products = { ...oldData.products, [currentKey]: value };
-
-          const sum = Object.entries(products).reduce(
-            (accumulator, currentValue) => accumulator + currentValue[1],
-            0
-          );
-     
-          return {
-            products: Object.fromEntries(
-              Object.entries(products).filter(([_, value]) => value !== 0)
-            ),
-            totalCount: sum,
-          };
-        }
-        return {
-          products: { [currentKey]: value },
-          totalCount: 1,
-        };
-      }
-    );
+    changeProduct(productid, value);
   };
   const getCount = (productid: number) => {
     if (data && data.products) {
