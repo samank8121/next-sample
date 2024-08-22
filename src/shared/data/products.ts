@@ -9,6 +9,7 @@ export const Products: ProductType[] = [
     weight: 100,
     unit: 'gr',
     description: 'description pr1',
+    imageSrc:'/images/products/butter.jpg'
   },
   {
       id: 2,
@@ -18,15 +19,17 @@ export const Products: ProductType[] = [
       weight: 100,
       unit: 'ml',
       description: 'description pr2',
+      imageSrc:'/images/products/milk.jpg'
   },
   {
     id: 3,
-    caption: 'Coca cola',
+    caption: 'Cola',
     rate: 4,
     price: 200,
     weight: 1.5,
     unit: 'l',
     description: 'description pr3',
+    imageSrc:'/images/products/cola.jpg'
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ export const Products: ProductType[] = [
     unit: 'gr',
     description: 'description pr4',
     price: 50,
+    imageSrc:'/images/products/cheese.jpg'
   },
   {
     id: 5,
@@ -45,5 +49,6 @@ export const Products: ProductType[] = [
     unit: 'gr',
     description: 'description pr5',
     price: 0,
+    imageSrc:'/images/products/chips.jpg'
   },
 ];

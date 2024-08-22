@@ -1,13 +1,9 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   min-width: 130px;
   max-width: 230px;
   background-color: #fff;
   position: relative;
-  gap: 4px;
-  padding: 0 14px 14px;
+  overflow: hidden;
   border-radius: 10px;
 }
 @media (max-width: 576px) {
@@ -15,14 +11,21 @@
     max-width: unset;
   }
 }
-
+.card .content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px;
+  width: 100%;
+}
 .card .top {
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-.card .add {
+.card .content .add {
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -44,7 +47,8 @@
   line-height: 22px;
 }
 
-.card .imagePlaceholder {
+.card .imageContainer {
+  position:relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,28 +57,28 @@
   margin-bottom: 8px;
 }
 
-.card .imagePlaceholder .iconPlaceholder {
+.card .iconContainer {
   width: 100px;
   height: 100px;
 }
 
-.card .ratePlaceholder {
+.card .rateContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
 }
 
-.card .ratePlaceholder.hidden {
+.card .rateContainer.hidden {
   visibility: hidden;
 }
 
-.card .ratePlaceholder .star {
+.card .rateContainer .star {
   color: var(--warning-700);
   fill: var(--warning-800);
 }
 
-.card .ratePlaceholder .rate {
+.card .rateContainer .rate {
   color:  var(--primary-400);
   font-size: 12px;
   font-weight: bold;
@@ -93,28 +97,28 @@
   text-decoration: none;
 }
 
-.card .pricePlaceHolder {
+.card .priceContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
 }
 
-.card .pricePlaceHolder .price {
+.card .priceContainer .price {
   color: var(--primary-500);
   font-size: 24px;
   font-weight: bold;
   line-height: 32px;
 }
 
-.card .pricePlaceHolder .unit {
+.card .priceContainer .unit {
   color: var(--primary-700);
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
 }
 
-.card .pricePlaceHolder .oldPrice {
+.card .priceContainer .oldPrice {
   color: var(--primary-900);
   font-size: 12px;
   font-weight: bold;
@@ -123,7 +127,7 @@
   text-decoration: line-through;
 }
 
-.card .pricePlaceHolder .oldUnit {
+.card .priceContainer .oldUnit {
   color: var(--primary-700);
   font-size: 10px;
   font-weight: 500;

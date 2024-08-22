@@ -53,24 +53,26 @@ const ProductCard: FC<ProductCardProps> = ({
         </div>
 
         {imageSrc && (
-          <Image
-            src={imageSrc}
-            alt={caption}
-            width={170}
-            height={170}
-            loading='lazy'
-            style={{ objectFit: 'contain', margin: 'auto' }}
-            draggable={false}
-            onDragStart={(event) => {
-              event.preventDefault();
-            }}
-          />
+          <div className={styles.imageContainer}>
+            <Image
+              src={imageSrc}
+              alt={caption}
+              fill
+              loading='lazy'
+              style={{ objectFit: 'cover', margin: 'auto' }}
+              draggable={false}
+              onDragStart={(event) => {
+                event.preventDefault();
+              }}
+            />
+          </div>
         )}
         {!imageSrc && (
-          <div className={styles.iconPlaceholder}>
+          <div className={styles.iconContainer}>
             <Image src='next.svg' alt='default' width={170} height={170} />
           </div>
         )}
+        <div className={styles.content}>
         {price !== 0 ? (
           <IncreaseDecrease
             className={styles.add}
@@ -82,14 +84,14 @@ const ProductCard: FC<ProductCardProps> = ({
           <div className={styles.add} />
         )}
         <div
-          className={clsx(styles.ratePlaceholder, {
+          className={clsx(styles.rateContainer, {
             [styles.hidden]: rate === 0,
           })}
         >
           <FiStar className={styles.star} />
           <span className={styles.rate}>{rate}</span>
         </div>
-        <div className={styles.pricePlaceHolder}>
+        <div className={styles.priceContainer}>
           <span className={styles.price}>
             {price === 0 ? t('outofStock') : price}
           </span>
@@ -103,6 +105,7 @@ const ProductCard: FC<ProductCardProps> = ({
           </div>
         )}
         {brand && <div className={styles.brand}>{brand}</div>}
+        </div>
       </div>
     </>
   );
