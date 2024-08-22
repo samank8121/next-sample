@@ -21,9 +21,9 @@ const ProductList = () => {
   const getCount = (productid: number) => {
     if (data && data.products) {
       const result = Object.entries(data.products).filter(
-        (key) => key[0] === productid.toString()
+        (key) => key[0].toString() === productid.toString()
       );
-      return result && result.length > 1 ? result[0][1] : 0;
+      return result && result.length > 0 ? result[0][1] : 0;
     } else return 0;
   };
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import React, { useState, FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import styles from './product-card.module.css';
 import Image from 'next/image';
 import { FiStar } from 'react-icons/fi';
@@ -34,14 +34,9 @@ const ProductCard: FC<ProductCardProps> = ({
   className,
   onChange
 }) => {
-  const [currectValue, setCurrentValue] = useState(value);
   const t = useTranslations('Product');
-  useEffect(() => {
-    setCurrentValue(value);
-  }, [value]);
 
-  const onChangeProduct = (count: number) => {    
-    setCurrentValue(count);
+  const onChangeProduct = (count: number) => {
     if (onChange) {
       onChange(count);
     }
@@ -79,7 +74,7 @@ const ProductCard: FC<ProductCardProps> = ({
         {price !== 0 ? (
           <IncreaseDecrease
             className={styles.add}
-            value={currectValue}
+            value={value}
             addBtnText={t('add')}
             onChange={onChangeProduct}
           />
