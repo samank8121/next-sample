@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     right: 50px;
     border-radius: 222px;
@@ -11,8 +11,14 @@
     width: 100px;
     height: 100px;
     z-index: 10;   
-    border: 5px solid #536493;
+    border: 5px solid #536493;   
 }
+@media (max-width: 576px) {
+    .cart {
+        bottom: 25px;
+        right: 25px;
+    }
+  }
 .cart .items {
     position: absolute;
     background-color: #FFF1DB;

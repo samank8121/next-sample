@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding: 6rem;
+  padding: 20px;
   min-height: 100vh;
 }
 
@@ -44,7 +44,7 @@
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 400px) {
   .main .cardList {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px 0;
@@ -52,7 +52,7 @@
   }
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 400px) and (max-width: 768px) {
   .main .cardList {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px 15px;
