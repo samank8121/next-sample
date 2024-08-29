@@ -4,8 +4,7 @@ import styles from './page.module.css';
 import { FiAlertCircle } from 'react-icons/fi';
 import { useTranslations } from 'next-intl';
 
-import Cart from '@/components/cart/cart';
-import ProductList from './components/productList';
+import ProductList from '@/components/product-list/product-list';
 
 export default function Home() {
   const t = useTranslations('Home');
@@ -22,7 +21,6 @@ export default function Home() {
         <FiAlertCircle />
       </Tooltip>
       <ProductList/>
-      <Cart />
     </main>
   );
 }

@@ -7,8 +7,9 @@ import Image from 'next/image';
 import { FiStar } from 'react-icons/fi';
 import IncreaseDecrease from '../increase-decrease/increase-decrease';
 import { ProductType } from '@/types/ProductType';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { euro } from '@/shared/constant';
+import Link from 'next/link';
 
 interface ProductCardProps {
   product: ProductType;
@@ -18,6 +19,7 @@ interface ProductCardProps {
   showFav?: boolean;
   className?: string;
   onChange?: (value: number) => void;
+  onClick?: () => void;
 }
 const ProductCard: FC<ProductCardProps> = ({
   product: {
@@ -29,13 +31,14 @@ const ProductCard: FC<ProductCardProps> = ({
     discount,
     weight,
     brand,
+    slug,
   },
   value,
   className,
-  onChange
+  onChange,
 }) => {
   const t = useTranslations('Product');
-
+  const locale = useLocale();
   const onChangeProduct = (count: number) => {
     if (onChange) {
       onChange(count);
@@ -52,59 +55,52 @@ const ProductCard: FC<ProductCardProps> = ({
           )}
         </div>
 
-        {imageSrc && (
-          <div className={styles.imageContainer}>
-            <Image
-              src={imageSrc}
-              alt={caption}
-              fill
-              loading='lazy'
-              style={{ objectFit: 'cover', margin: 'auto' }}
-              draggable={false}
-              onDragStart={(event) => {
-                event.preventDefault();
-              }}
-            />
-          </div>
-        )}
-        {!imageSrc && (
-          <div className={styles.iconContainer}>
-            <Image src='next.svg' alt='default' width={170} height={170} />
-          </div>
-        )}
-        <div className={styles.content}>
-        {price !== 0 ? (
-          <IncreaseDecrease
-            className={styles.add}
-            value={value}
-            addBtnText={t('add')}
-            onChange={onChangeProduct}
+        <Link className={styles.imageContainer} href={`${locale}/${slug}`}>
+          <Image
+            src={imageSrc}
+            alt={caption}
+            fill
+            loading='lazy'
+            style={{ objectFit: 'cover', margin: 'auto' }}
+            draggable={false}
+            onDragStart={(event) => {
+              event.preventDefault();
+            }}
           />
-        ) : (
-          <div className={styles.add} />
-        )}
-        <div
-          className={clsx(styles.rateContainer, {
-            [styles.hidden]: rate === 0,
-          })}
-        >
-          <FiStar className={styles.star} />
-          <span className={styles.rate}>{rate}</span>
-        </div>
-        <div className={styles.priceContainer}>
-          <span className={styles.price}>
-            {price === 0 ? t('outofStock') : price}
-          </span>
-          {price !== 0 && <span className={styles.price}>{euro}</span>}
-        </div>
-
-        <span className={styles.caption}>{caption}</span>
-        {weight && (
-          <div className={styles.weight}>
-            {weight} {unit}
+        </Link>
+        <div className={styles.content}>
+          {price !== 0 ? (
+            <IncreaseDecrease
+              className={styles.add}
+              value={value}
+              addBtnText={t('add')}
+              onChange={onChangeProduct}
+            />
+          ) : (
+            <div className={styles.add} />
+          )}
+          <div
+            className={clsx(styles.rateContainer, {
+              [styles.hidden]: rate === 0,
+            })}
+          >
+            <FiStar className={styles.star} />
+            <span className={styles.rate}>{rate}</span>
           </div>
-        )}
-        {brand && <div className={styles.brand}>{brand}</div>}
+          <div className={styles.priceContainer}>
+            <span className={styles.price}>
+              {price === 0 ? t('outofStock') : price}
+            </span>
+            {price !== 0 && <span className={styles.price}>{euro}</span>}
+          </div>
+
+          <span className={styles.caption}>{caption}</span>
+          {weight && (
+            <div className={styles.weight}>
+              {weight} {unit}
+            </div>
+          )}
+          {brand && <div className={styles.brand}>{brand}</div>}
         </div>
       </div>
     </>

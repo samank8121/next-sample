@@ -6,6 +6,7 @@ import ClientProviders from "../providers";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import Modals from "../modals";
+import Cart from "@/components/cart/cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default async function RootLayout({ children, locale }: RootLayoutProps) 
           <ClientProviders>
             <Modals />
             {children}
+            <Cart />
           </ClientProviders>
         </NextIntlClientProvider>
       </body>
