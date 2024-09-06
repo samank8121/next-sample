@@ -27,10 +27,8 @@ const ProductCard: FC<ProductCardProps> = ({
     imageSrc,
     rate,
     price,
-    unit,
     discount,
     weight,
-    brand,
     slug,
   },
   value,
@@ -97,10 +95,9 @@ const ProductCard: FC<ProductCardProps> = ({
           <span className={styles.caption}>{caption}</span>
           {weight && (
             <div className={styles.weight}>
-              {weight} {unit}
+              {weight}
             </div>
           )}
-          {brand && <div className={styles.brand}>{brand}</div>}
         </div>
       </div>
     </>
