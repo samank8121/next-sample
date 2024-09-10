@@ -7,8 +7,7 @@ export const Products: ProductType[] = [
     slug: 'butter',
     rate: 5,
     price: 100,
-    weight: 100,
-    unit: 'gr',
+    weight: '100 gr',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar lorem massa, quis commodo dui volutpat id. Nullam accumsan sodales nibh eu porttitor. Pellentesque lorem sem, faucibus gravida tempus sed, hendrerit ut tellus. Integer tincidunt sem vel volutpat dictum. Duis enim nulla, vulputate id sem ac, volutpat bibendum justo. Vivamus augue felis, viverra sed vestibulum in, accumsan vitae lectus. Ut quis neque a nunc faucibus dictum. Pellentesque sit amet interdum lectus. Nullam vulputate tincidunt est at semper. Vestibulum non pellentesque tortor, nec sollicitudin lectus. Proin gravida turpis a justo feugiat, a venenatis metus hendrerit.',
     imageSrc:'/images/products/butter.jpg'
   },
@@ -18,8 +17,7 @@ export const Products: ProductType[] = [
       slug: 'milk',
       rate: 3,
       price: 150,
-      weight: 100,
-      unit: 'ml',
+      weight: '100 ml',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar lorem massa, quis commodo dui volutpat id. Nullam accumsan sodales nibh eu porttitor. Pellentesque lorem sem, faucibus gravida tempus sed, hendrerit ut tellus. Integer tincidunt sem vel volutpat dictum. Duis enim nulla, vulputate id sem ac, volutpat bibendum justo. Vivamus augue felis, viverra sed vestibulum in, accumsan vitae lectus. Ut quis neque a nunc faucibus dictum. Pellentesque sit amet interdum lectus. Nullam vulputate tincidunt est at semper. Vestibulum non pellentesque tortor, nec sollicitudin lectus. Proin gravida turpis a justo feugiat, a venenatis metus hendrerit.',
       imageSrc:'/images/products/milk.jpg'
   },
@@ -29,8 +27,7 @@ export const Products: ProductType[] = [
     slug: 'cola',
     rate: 4,
     price: 200,
-    weight: 1.5,
-    unit: 'l',
+    weight: '1.5 l',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar lorem massa, quis commodo dui volutpat id. Nullam accumsan sodales nibh eu porttitor. Pellentesque lorem sem, faucibus gravida tempus sed, hendrerit ut tellus. Integer tincidunt sem vel volutpat dictum. Duis enim nulla, vulputate id sem ac, volutpat bibendum justo. Vivamus augue felis, viverra sed vestibulum in, accumsan vitae lectus. Ut quis neque a nunc faucibus dictum. Pellentesque sit amet interdum lectus. Nullam vulputate tincidunt est at semper. Vestibulum non pellentesque tortor, nec sollicitudin lectus. Proin gravida turpis a justo feugiat, a venenatis metus hendrerit.',
     imageSrc:'/images/products/cola.jpg'
   },
@@ -39,8 +36,7 @@ export const Products: ProductType[] = [
     caption: 'Cheese',
     slug: 'cheese',
     rate: 2,
-    weight: 250,
-    unit: 'gr',
+    weight: '250 gr',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar lorem massa, quis commodo dui volutpat id. Nullam accumsan sodales nibh eu porttitor. Pellentesque lorem sem, faucibus gravida tempus sed, hendrerit ut tellus. Integer tincidunt sem vel volutpat dictum. Duis enim nulla, vulputate id sem ac, volutpat bibendum justo. Vivamus augue felis, viverra sed vestibulum in, accumsan vitae lectus. Ut quis neque a nunc faucibus dictum. Pellentesque sit amet interdum lectus. Nullam vulputate tincidunt est at semper. Vestibulum non pellentesque tortor, nec sollicitudin lectus. Proin gravida turpis a justo feugiat, a venenatis metus hendrerit.',
     price: 50,
     imageSrc:'/images/products/cheese.jpg'
@@ -50,8 +46,7 @@ export const Products: ProductType[] = [
     caption: 'Chips',
     slug: 'chips',
     rate: 4,
-    weight: 275,
-    unit: 'gr',
+    weight: '275 gr',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar lorem massa, quis commodo dui volutpat id. Nullam accumsan sodales nibh eu porttitor. Pellentesque lorem sem, faucibus gravida tempus sed, hendrerit ut tellus. Integer tincidunt sem vel volutpat dictum. Duis enim nulla, vulputate id sem ac, volutpat bibendum justo. Vivamus augue felis, viverra sed vestibulum in, accumsan vitae lectus. Ut quis neque a nunc faucibus dictum. Pellentesque sit amet interdum lectus. Nullam vulputate tincidunt est at semper. Vestibulum non pellentesque tortor, nec sollicitudin lectus. Proin gravida turpis a justo feugiat, a venenatis metus hendrerit.',
     price: 0,
     imageSrc:'/images/products/chips.jpg'
