@@ -11,8 +11,9 @@ import { useTranslations } from 'next-intl';
 import { useCart } from '@/shared/hooks/useCart';
 import { useQuery } from '@tanstack/react-query';
 import { GetProductsType } from '@/types/ProductType';
-import { GET_PRODUCTS } from '@/shared/graphql/products';
-import request from 'graphql-request';
+// import { GET_PRODUCTS } from '@/shared/graphql/products';
+// import request from 'graphql-request';
+import { Products } from '@/shared/data/products';
 
 export default function Product({
   params,
@@ -23,10 +24,13 @@ export default function Product({
   const { changeProduct, getProductCount } = useCart();
   const { data, isLoading } = useQuery<GetProductsType>({
     queryKey: [queryKeys.product, params.product],
-    queryFn: async () =>
-      request(process.env.NEXT_PUBLIC_API_ADDRESS!, GET_PRODUCTS, {
-        slug: params.product,
-      }),
+    queryFn: async () => {
+      // request(process.env.NEXT_PUBLIC_API_ADDRESS!, GET_PRODUCTS, {
+      //   slug: params.product,
+      // }),
+      const res = Products.filter((p) => p.slug === params.product);
+      return { products: res };
+    },
   });
 
   const onChangeProduct = (productid: number, value: number) => {
