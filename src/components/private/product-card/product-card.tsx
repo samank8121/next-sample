@@ -5,7 +5,7 @@ import React, { FC } from 'react';
 import styles from './product-card.module.css';
 import Image from 'next/image';
 import { FiStar } from 'react-icons/fi';
-import IncreaseDecrease from '../increase-decrease/increase-decrease';
+import IncreaseDecrease from '@/components/increase-decrease/increase-decrease';
 import { ProductType } from '@/types/ProductType';
 import { useTranslations, useLocale } from 'next-intl';
 import { euro } from '@/shared/constant';
@@ -22,15 +22,7 @@ interface ProductCardProps {
   onClick?: () => void;
 }
 const ProductCard: FC<ProductCardProps> = ({
-  product: {
-    caption,
-    imageSrc,
-    rate,
-    price,
-    discount,
-    weight,
-    slug,
-  },
+  product: { caption, imageSrc, rate, price, discount, weight, slug },
   value,
   className,
   onChange,
@@ -93,11 +85,7 @@ const ProductCard: FC<ProductCardProps> = ({
           </div>
 
           <span className={styles.caption}>{caption}</span>
-          {weight && (
-            <div className={styles.weight}>
-              {weight}
-            </div>
-          )}
+          {weight && <div className={styles.weight}>{weight}</div>}
         </div>
       </div>
     </>
