@@ -1,6 +1,6 @@
 {
-  "Autocomplete": {
-    "placeholder": "Suche...",
-    "noSuggestion": "Keine Vorschläge vorhanden"
+  "Autocomplete": {   
+    "placeholder": "Search...",
+    "noSuggestion": "No suggestions available"
   }
 }
