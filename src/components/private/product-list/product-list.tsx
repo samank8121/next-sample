@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import ProductCard from '@/components/product-card/product-card';
+import ProductCard from '@/components/private/product-card/product-card';
 import styles from './product-list.module.css';
 import { useCart } from '@/shared/hooks/useCart';
 import { useQuery } from '@tanstack/react-query';
@@ -14,7 +14,7 @@ const ProductList = () => {
   const { changeProduct, getProductCount } = useCart();
   const { data, isLoading } = useQuery<GetProductsType>({
     queryKey: [queryKeys.products],
-    queryFn: async () =>
+    queryFn: async () => 
       request(
         process.env.NEXT_PUBLIC_API_ADDRESS!,
         GET_PRODUCTS,

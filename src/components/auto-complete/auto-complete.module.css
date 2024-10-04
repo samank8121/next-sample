@@ -1,0 +1,46 @@
+.autocomplete {
+  width: 100%;
+  position: relative;
+}
+
+.autocomplete input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid white;
+  margin: 10px 0 0 0;
+}
+
+.autocomplete .suggestions {
+  visibility:hidden;
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  right: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+.autocomplete .suggestions.show {
+  visibility:visible;
+}
+
+.suggestionItem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestionItem:last-child {
+  border-bottom: none;
+}
+
+.suggestionItem:hover,
+.suggestionItem.active {
+  background-color: #f0f0f0;
+}
