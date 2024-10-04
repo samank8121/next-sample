@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './button.module.css';
 
 type Props = {
@@ -93,5 +93,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
+
+Button.propTypes = {
+  variant: PropTypes.oneOf(['filled', 'outlined', 'elevated']),
+  size: PropTypes.oneOf(['sm', 'm', 'l', 'xl']),
+  icon: PropTypes.node,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  loading: PropTypes.bool,
+  loadingText: PropTypes.string,
+  delay: PropTypes.number,
+  onClick: PropTypes.func,
+  children: PropTypes.node,
+  className: PropTypes.string,
+};
 
 export default Button;
