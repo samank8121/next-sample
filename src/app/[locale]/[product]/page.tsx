@@ -13,6 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 import { GetProductsType } from '@/types/ProductType';
 import { GET_PRODUCTS } from '@/shared/graphql/products';
 import request from 'graphql-request';
+import { useAuthentication } from '@/shared/hooks/useAuthentication';
 
 export default function Product({
   params,
@@ -20,6 +21,7 @@ export default function Product({
   params: { locale: string; product: string };
 }) {
   const t = useTranslations('Product');
+  const { isAuthenticated } = useAuthentication();
   const { changeProduct, getProductCount } = useCart();
   const { data, isLoading } = useQuery<GetProductsType>({
     queryKey: [queryKeys.product, params.product],
@@ -71,7 +73,10 @@ export default function Product({
             value={getProductCount(id)}
             addBtnText={t('add')}
             onChange={(value) => {
-              onChangeProduct(id, value);
+              if(isAuthenticated())
+              {
+                onChangeProduct(id, value);
+              }
             }}
           />
         ) : (

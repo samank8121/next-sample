@@ -5,4 +5,6 @@ export const queryKeys = {
     product: 'product',
     cart: 'cart',
     cartModal: 'cart-modal',
+    userInfo: 'user-info',
+    historyPage: 'history-page',
 }

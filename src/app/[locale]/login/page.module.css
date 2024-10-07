@@ -1,0 +1,28 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  min-height: 100vh;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.login .container
+{
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color:black;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 30px 20px;
+}
+.login .container .error
+{
+  color: rgb(241, 95, 95);
+}
+.login .container .loginBtn
+{
+  background-color: #269826;
+}

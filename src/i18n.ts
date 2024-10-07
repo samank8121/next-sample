@@ -9,6 +9,7 @@ export default getRequestConfig(async ({ locale }) => {
     ...(await import(`../content/${locale}/home.json`)).default,
     ...(await import(`../content/${locale}/product.json`)).default,
     ...(await import(`../content/${locale}/cart.json`)).default,
+    ...(await import(`../content/${locale}/login.json`)).default,
     ...(await import(`../content/${locale}/general.json`)).default,
   };
   return {

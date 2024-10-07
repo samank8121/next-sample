@@ -9,6 +9,12 @@ export const useCart = () => {
   });
   const changeProduct = (productid: number, value: number) => {
     const currentKey = productid.toString();
+    //call api with header
+    //const headers = {
+    //   'Authorization': `Bearer YOUR_TOKEN_HERE`
+    // };
+
+    // const data = await request(API_ADDRESS, CREATE_MUTATION, variables, { headers });
     commonQueryClient.setQueryData<CartType>(
       [queryKeys.cart],
       (oldData?: CartType) => {

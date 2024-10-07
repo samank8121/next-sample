@@ -9,9 +9,11 @@ import { queryKeys } from '@/shared/constant';
 import { GET_PRODUCTS } from '@/shared/graphql/products';
 import request from 'graphql-request';
 import { GetProductsType } from '@/types/ProductType';
+import { useAuthentication } from '@/shared/hooks/useAuthentication';
 
 const ProductList = () => {
   const { changeProduct, getProductCount } = useCart();
+  const { isAuthenticated } = useAuthentication();
   const { data, isLoading } = useQuery<GetProductsType>({
     queryKey: [queryKeys.products],
     queryFn: async () => 
@@ -36,7 +38,10 @@ const ProductList = () => {
           product={p}
           value={getProductCount(p.id)}
           onChange={(value) => {
-            onChangeProduct(p.id, value);
+            if(isAuthenticated())
+            {
+              onChangeProduct(p.id, value);
+            }
           }}
         />
       ))}
