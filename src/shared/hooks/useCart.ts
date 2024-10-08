@@ -1,20 +1,49 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { CartType } from '@/types/CartType';
 import commonQueryClient from '../getQueryClient';
 import { queryKeys } from '../constant';
 import { useQuery } from '@tanstack/react-query';
+import request from 'graphql-request';
+import { CHANGE_PRODUCT_OF_CART, GET_CARTS, GetCartsType } from '@/shared/graphql/cart';
+import { AuthType } from '@/types/AuthType';
 
 export const useCart = () => {
   const { data } = useQuery<CartType>({
     queryKey: [queryKeys.cart],
+    queryFn: async () => {
+      const results = await request<GetCartsType>(
+        process.env.NEXT_PUBLIC_API_ADDRESS!,
+        GET_CARTS
+      );
+      console.log('GET_CARTS', results);
+      const products: { [key: string]: number } = {};
+      let totalCount = 0;
+      results.carts.forEach((c)=>{
+        c.cartProducts.forEach((cp)=>{
+          const {id} = cp.product;
+          products[id]= cp.productCount;
+          totalCount += cp.productCount;
+        });
+      });
+      return { products, totalCount };
+    },
   });
-  const changeProduct = (productid: number, value: number) => {
+  const { data:userInfo } = useQuery<AuthType>({
+    queryKey: [queryKeys.userInfo],
+  });
+  const changeProduct = async (productid: number, value: number) => {
     const currentKey = productid.toString();
-    //call api with header
-    //const headers = {
-    //   'Authorization': `Bearer YOUR_TOKEN_HERE`
-    // };
+    const headers = {
+      'Authorization': `Bearer ${userInfo?.login.token}`
+    };
 
-    // const data = await request(API_ADDRESS, CREATE_MUTATION, variables, { headers });
+    const data = await request(
+      process.env.NEXT_PUBLIC_API_ADDRESS!,
+      CHANGE_PRODUCT_OF_CART,
+      { productId: productid, count: value },
+      headers
+    );
+    console.log(data);
     commonQueryClient.setQueryData<CartType>(
       [queryKeys.cart],
       (oldData?: CartType) => {
@@ -40,14 +69,14 @@ export const useCart = () => {
       }
     );
   };
-  const getProductCount = (productid: number):number => {
+  const getProductCount = (productid: number): number => {
     if (data && data.products) {
       const result = Object.entries(data.products).filter(
         (key) => key[0].toString() === productid.toString()
       );
-      return result && result.length > 0 ? result[0][1] as number : 0;
+      return result && result.length > 0 ? (result[0][1] as number) : 0;
     } else return 0;
   };
 
-  return {changeProduct, getProductCount};
+  return { changeProduct, getProductCount };
 };

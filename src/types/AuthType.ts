@@ -1,6 +1,8 @@
 export type AuthType = {
-  user: {
-    username: string;
+  login: {
+    user: {
+      username: string;
+    };
+    token: string;
   };
-  token: string;
 };

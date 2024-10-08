@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { AuthType } from '@/types/AuthType';
 import commonQueryClient from '../getQueryClient';
 import { usePathname, useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 export const useAuthentication = () => {
   const { data } = useQuery<AuthType>({
@@ -10,15 +11,15 @@ export const useAuthentication = () => {
   });
   const pathname = usePathname();
   const router = useRouter();
+  const locale = useLocale();
   const isAuthenticated = () => {
-    console.log('isAuthenticated');
-    if (data && data.token) {
+    if (data && data.login) {
       return true;
     }
     else
     {
       commonQueryClient.setQueryData([queryKeys.historyPage], pathname);
-      router.push('login');
+      router.push(`${locale}/login`);
     }
   };
  

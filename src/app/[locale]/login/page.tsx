@@ -10,6 +10,7 @@ import { LOGIN_MUTATION } from '@/shared/graphql/authentication';
 import commonQueryClient from '@/shared/getQueryClient';
 import { queryKeys } from '@/shared/constant';
 import { useRouter } from 'next/navigation';
+import { AuthType } from '@/types/AuthType';
 
 export default function Login() {
   const t = useTranslations('Login');
@@ -20,7 +21,7 @@ export default function Login() {
   const onLogin = async () => {
     const variables = { username, password };
     try {
-      const data = await request(
+      const data = await request<AuthType>(
         process.env.NEXT_PUBLIC_API_ADDRESS!,
         LOGIN_MUTATION,
         variables
