@@ -2,7 +2,11 @@
     "Login": {
       "username": "Username",
       "password": "Password",
-      "caption":"Login"
+      "rePassword": "Re-Password",
+      "email": "Email",
+      "login":"Login",
+      "error":"Username/password is not correct",
+      "signUp":"Create Account"      
     }
   }
   

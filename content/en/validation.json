@@ -1,0 +1,9 @@
+{
+    "Validation": {
+      "required": "Required",
+      "password": "Password must be 8 letter",
+      "rePassword": "Passwords must be same",
+      "email": "Email format is not correct"
+    }
+  }
+  

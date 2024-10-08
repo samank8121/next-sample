@@ -15,13 +15,22 @@ export const useAuthentication = () => {
   const isAuthenticated = () => {
     if (data && data.login) {
       return true;
-    }
-    else
-    {
+    } else {
       commonQueryClient.setQueryData([queryKeys.historyPage], pathname);
       router.push(`${locale}/login`);
     }
   };
- 
-  return {isAuthenticated};
+  const checkLoginStatus = ()=>{
+    if (data && data.login) {
+      return true;
+    }
+    return false;
+  }
+  const getHeader = () => {
+    return {
+      Authorization: `Bearer ${data?.login.token}`,
+    };
+  };
+
+  return { isAuthenticated, checkLoginStatus, getHeader };
 };

@@ -1,0 +1,9 @@
+{
+    "Validation": {
+      "required": "Erforderlich",
+      "password": "Das Passwort muss aus 8 Buchstaben bestehen",
+      "rePassword": "Passwörter müssen gleich sein",
+      "email": "E-Mail-Format ist nicht korrekt"          
+    }
+  }
+  

@@ -2,7 +2,11 @@
     "Login": {
       "username": "Benutzername",
       "password": "Passwort",
-      "caption":"Anmeldung"
+      "rePassword": "Neu-Passwort",
+      "email": "E-Mail",
+      "login":"Anmeldung",
+      "error":"Benutzername/Kennwort ist nicht korrekt",
+      "signUp":"Konto erstellen"     
     }
   }
   

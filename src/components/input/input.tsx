@@ -50,6 +50,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       autoComplete,
       ...props
     },
+    ref
   ) => {
     const localRef = useRef<HTMLInputElement | null>(null);
 
@@ -89,6 +90,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {prefix && <span className={styles.prefix}>{prefix}</span>}
           {icon && <span className={styles.icon}>{icon}</span>}
           <input
+            ref={ref}
             id={`input${inputId}`}
             aria-label="input"
             type={type}

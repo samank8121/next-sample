@@ -1,49 +1,64 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { CartType } from '@/types/CartType';
 import commonQueryClient from '../getQueryClient';
 import { queryKeys } from '../constant';
 import { useQuery } from '@tanstack/react-query';
 import request from 'graphql-request';
-import { CHANGE_PRODUCT_OF_CART, GET_CARTS, GetCartsType } from '@/shared/graphql/cart';
-import { AuthType } from '@/types/AuthType';
+import {
+  CHANGE_PRODUCT_OF_CART,
+  GET_CARTS,
+  GetCartsType,
+} from '@/shared/graphql/cart';
+import { useAuthentication } from './useAuthentication';
+import { useEffect, useState } from 'react';
 
 export const useCart = () => {
-  const { data } = useQuery<CartType>({
+  const { getHeader } = useAuthentication();
+  const { checkLoginStatus } = useAuthentication();
+  const [loginStatus, setLoginStatus] = useState(checkLoginStatus());
+
+  const { data, refetch } = useQuery<CartType>({
     queryKey: [queryKeys.cart],
     queryFn: async () => {
+      const headers = getHeader();
       const results = await request<GetCartsType>(
         process.env.NEXT_PUBLIC_API_ADDRESS!,
-        GET_CARTS
+        GET_CARTS,
+        {},
+        headers
       );
-      console.log('GET_CARTS', results);
       const products: { [key: string]: number } = {};
       let totalCount = 0;
-      results.carts.forEach((c)=>{
-        c.cartProducts.forEach((cp)=>{
-          const {id} = cp.product;
-          products[id]= cp.productCount;
+      results.carts.forEach((c) => {
+        c.cartProducts.forEach((cp) => {
+          const { id } = cp.product;
+          products[id] = cp.productCount;
           totalCount += cp.productCount;
         });
       });
       return { products, totalCount };
     },
+    enabled: loginStatus,
   });
-  const { data:userInfo } = useQuery<AuthType>({
-    queryKey: [queryKeys.userInfo],
-  });
+  useEffect(() => {
+    const value = checkLoginStatus();
+    if (value !== loginStatus) {
+      setLoginStatus(value);
+      if (value) {
+        refetch();
+      }
+    }
+  }, [checkLoginStatus]);
+
   const changeProduct = async (productid: number, value: number) => {
     const currentKey = productid.toString();
-    const headers = {
-      'Authorization': `Bearer ${userInfo?.login.token}`
-    };
-
-    const data = await request(
+    const headers = getHeader();
+    await request(
       process.env.NEXT_PUBLIC_API_ADDRESS!,
       CHANGE_PRODUCT_OF_CART,
       { productId: productid, count: value },
       headers
     );
-    console.log(data);
     commonQueryClient.setQueryData<CartType>(
       [queryKeys.cart],
       (oldData?: CartType) => {
