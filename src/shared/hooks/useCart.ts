@@ -13,8 +13,7 @@ import { useAuthentication } from './useAuthentication';
 import { useEffect, useState } from 'react';
 
 export const useCart = () => {
-  const { getHeader } = useAuthentication();
-  const { checkLoginStatus } = useAuthentication();
+  const { getHeader, checkLoginStatus } = useAuthentication();
   const [loginStatus, setLoginStatus] = useState(checkLoginStatus());
 
   const { data, refetch } = useQuery<CartType>({
