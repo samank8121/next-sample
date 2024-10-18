@@ -17,9 +17,7 @@ This project is a sample application built with Next.js 14.2.9. It demonstrates 
 
 ## Graphql Branch
 There is a graphql branch that connects to the backend listed below. This branch includes more complex GraphQL implementations compared to the main branch.
-Github:
-https://github.com/samank8121/next-sample/tree/graphql
+Github: [Graphql Branch](https://github.com/samank8121/next-sample/tree/graphql)
 
 ## Backend
-For the backend, refer to this project on my GitHub:
-https://github.com/samank8121/next-graphql-server
+For the backend, refer to this project on my GitHub: [Graphql Server](https://github.com/samank8121/next-graphql-server)
