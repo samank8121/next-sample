@@ -10,7 +10,7 @@ yarn storybook
 ## Project OverView
 This project is a sample application built with Next.js 14.2.9. It demonstrates how to display a list of products in multiple languages. Key features include:
 
-- React Query for state management and caching.
+- TanStack Query(React Query) for state management and caching.
 - i18n for internationalization and translations.
 - Metadata for SEO and page information.
 - Progressive Web App (PWA) capabilities.
